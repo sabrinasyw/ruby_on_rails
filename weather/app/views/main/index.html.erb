@@ -1,0 +1,22 @@
+<!-- Your code here -->
+<% if not params[:city].nil? %>
+	<h1> <%= params[:city] %></h1>
+	<p>
+        Its population is <%= c.population %>,
+        and its landmark is <%= c.landmark %>.
+		It's <%= c.weather[:temperature] %>°F,
+		and it looks like <%= c.weather[:description] %>
+	</p>
+<% else %>
+    <% City.all.values.each do |c| %>
+    <% if not c.nil? %>
+        <h1> <%= c.name %></h1>
+        <p>
+            Its population is <%= c.population %>,
+            and its landmark is <%= c.landmark %>.
+            It's <%= c.weather[:temperature] %>°F,
+            and it looks like <%= c.weather[:description] %>
+        </p>
+    <% end %>
+    <% end %>
+<% end %>
